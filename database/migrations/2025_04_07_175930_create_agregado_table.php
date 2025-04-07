@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detalle_pedido', function (Blueprint $table) {
+        Schema::create('agregado', function (Blueprint $table) {
             $table->id();
             $table->decimal('precio', 8, 2);
             $table->integer('cantidad');
-            $table->foreignId('pedido_id')->constrained('pedido');
+            $table->foreignId('detalle_pedido_id')->constrained('detalle_pedido');
             $table->foreignId('producto_id')->constrained('producto');
             $table->enum('estado', ['activo', 'inactivo'])->default('activo');
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detalle_pedido');
+        Schema::dropIfExists('agregado');
     }
 };

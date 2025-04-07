@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('detalle_carta', function (Blueprint $table) {
             $table->id();
             $table->enum('estado', ['activo', 'inactivo'])->default('activo');
+            $table->enum('estado_disponibilidad', [1, 0])->default(1);
             $table->foreignId('carta_id')->constrained('carta');
             $table->foreignId('producto_id')->constrained('producto');
             $table->timestamps();
