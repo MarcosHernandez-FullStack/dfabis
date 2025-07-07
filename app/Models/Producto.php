@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Producto extends Model
 {
@@ -12,11 +13,11 @@ class Producto extends Model
     protected $guarded = [];
     protected $connection = 'mysql';
 
-    public function categoria():BelongsTo
+    public function categoria()
     {
         return $this->belongsTo(Categoria::class);
     }
-    public function unidad():BelongsTo
+    public function unidad()
     {
         return $this->belongsTo(Unidad::class);
     }

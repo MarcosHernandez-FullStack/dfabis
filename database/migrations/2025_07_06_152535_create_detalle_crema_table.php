@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categoria', function (Blueprint $table) {
+        Schema::create('detalle_crema', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('descripcion')->nullable();
-            $table->enum('proceso', ['pedido', 'compra', 'agregado'])->default('pedido');
-            $table->enum('estado', ['activo', 'inactivo'])->default('activo');
+            $table->foreignId('crema_id')->constrained('crema');
+            $table->foreignId('detalle_pedido_id')->constrained('crema');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categoria');
+        Schema::dropIfExists('detalle_crema');
     }
 };

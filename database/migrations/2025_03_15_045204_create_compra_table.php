@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('cantidad');
             $table->decimal('precio', 8, 2);
+            $table->text('observacion')->nullable();
             $table->enum('estado', ['activo', 'inactivo'])->default('activo');
             $table->timestamps();
         });

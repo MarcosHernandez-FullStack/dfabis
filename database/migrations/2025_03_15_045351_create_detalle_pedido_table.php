@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->decimal('precio', 8, 2);
             $table->integer('cantidad');
+            $table->text('observacion')->nullable();
             $table->foreignId('pedido_id')->constrained('pedido');
             $table->foreignId('producto_id')->constrained('producto');
             $table->enum('estado', ['activo', 'inactivo'])->default('activo');

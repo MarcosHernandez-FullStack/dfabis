@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('numero');
             $table->enum('estado', ['activo', 'inactivo'])->default('activo');
+            $table->enum('estado_operacion', ['disponible', 'ocupada'])->default('disponible');
             $table->timestamps();
         });
     }

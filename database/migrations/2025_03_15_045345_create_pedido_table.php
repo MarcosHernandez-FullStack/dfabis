@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->enum('tipo', ['mesa', 'delivery'])->default('mesa');
             $table->string('ruta_comprobante');
+            $table->text('observacion')->nullable();
             $table->enum('forma_pago', ['efectivo','yape','plin','transferencia'])->default('efectivo');
             $table->enum('estado', ['activo', 'inactivo'])->default('activo');
             $table->foreignId('cliente_id')->constrained('cliente');
